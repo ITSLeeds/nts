@@ -1,0 +1,48 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  eval = FALSE
+)
+```
+
+# nts
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+
+```{r}
+library(tidyverse)
+nts_dir = "~/hd/data/raw/ind/nts/UKDA-5340-spss/spss/spss24/"
+old_dir = setwd(nts_dir)
+list.files()
+# See https://stackoverflow.com/questions/49691736/havenread-sav-showing-value-labels-rather-than-codes
+stages = haven::read_spss("stageeul2017.sav") %>% haven::as_factor()
+class(stages)
+names(stages)
+stages_sample = stages %>% sample_n(10000)
+summary(stages_sample)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+```{r}
+setwd(old_dir)
+```
